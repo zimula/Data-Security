@@ -30,7 +30,7 @@ app = Flask(__name__)
 
 # 1. Caesar Cipher Encryption Function
 letters = 'abcdefghijklmnopqrstuvwxyz'
-def caeser_cipher(text, shift=3):
+def caeser_cipher(text, shift):
     encrypted_text =""
     for letter in text:
         letter = letter.lower()
@@ -63,7 +63,7 @@ def home():
     if request.method == 'POST':
         user_input = request.form.get('user_input', '')
         shift = int(request.form.get('shift', 3))  # Get shift value from form
-        encrypted_text = caesar_cipher(user_input, shift)  # Encrypt the input
+        encrypted_text = caeser_cipher(user_input, shift)  # Encrypt the input
         output = f'Original: {user_input}<br>Encrypted: {encrypted_text}'
     return render_template_string(HTML_TEMPLATE, output=output)
 
