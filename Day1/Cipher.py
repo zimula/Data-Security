@@ -108,7 +108,7 @@ if __name__ == '__main__':
 
 
 """
-ALTERNATIVE FUNCTIONS: 
+ALTERNATIVE FUNCTIONS WITH BUILT IN ARRAY: 
 - must revise string manipulation. 
 def encrypt(text, shift=3):
     encrypted_text = ''
