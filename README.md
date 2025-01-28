@@ -1,6 +1,6 @@
 # INTRO TO ENCRYPTION
-1: Caeser cipher: Works by substituting letters using integers. The integer represents a the position of in the alphabet.  
-    1.1: Can be solved using a simple maths like so: 
+1. Caeser cipher: Works by substituting letters using integers. The integer represents a the position of in the alphabet.  
+    1.1. Can be solved using a simple maths like so: 
 
         i. Encryption
         En(x) = (x + n) mod 26
