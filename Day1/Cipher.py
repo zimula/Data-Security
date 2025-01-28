@@ -29,15 +29,20 @@ from flask import Flask, render_template_string, request
 app = Flask(__name__)
 
 # 1. Caesar Cipher Encryption Function
-def caesar_cipher(text, shift=3):
-    encrypted_text = ""
-    for char in text:
-        if char.isalpha():
-            base = ord('a') if char.islower() else ord('A')
-            shifted_char = chr((ord(char) - base + shift) % 26 + base)
-            encrypted_text += shifted_char
-        else:
-            encrypted_text += char
+letters = 'abcdefghijklmnopqrstuvwxyz'
+def caeser_cipher(text, shift=3):
+    encrypted_text =""
+    for letter in text:
+        letter = letter.lower()
+        if not letter == '':
+            index = letters.find(letter)
+            if index == -1:
+                encrypted_text += letter
+            else:
+                new_index = index + shift
+                if new_index >= 26:
+                    new_index -=26
+                encrypted_text += letters[new_index]
     return encrypted_text
 
 # 1.1. Decrypt
@@ -90,3 +95,15 @@ HTML_TEMPLATE = """
 
 if __name__ == '__main__':
     app.run(debug=True) 
+
+
+"""def caesar_cipher(text, shift=3):
+    encrypted_text = ''
+    for char in text:
+        if char.isalpha():
+            base = ord('a') if char.islower() else ord('A')
+            shifted_char = chr((ord(char) - base + shift) % 26 + base)
+            encrypted_text += shifted_char
+        else:
+            encrypted_text += char
+    return encrypted_text"""
