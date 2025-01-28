@@ -1,26 +1,24 @@
 """ 
 NOTES: 
-1: Caeser cipher:
-Works by substituting letters using integers. The integer represents a the position of in the alphabet.  
-1.1: Can be solved using a simple maths like so: 
+1: Caeser cipher: Works by substituting letters using integers. The integer represents a the position of in the alphabet.  
+    1.1: Can be solved using a simple maths like so: 
 
-    i. Encryption
+        i. Encryption
         En(x) = (x + n) mod 26
         - mod: to ensure that if the result is greater than 26, it starts from the beginning.
         - Divides by 26 and returns the remainder (new position) 
 
-    ii. Decryption
+        ii. Decryption
         En(x) = (x-n) mod 26
     
-    ***Requires to know the cipher number/shift. 
+        ***Requires to know the cipher number/shift. 
 
-2. Vigenere Cipher: Takes Caeser a step further by using a different number value 
-    for each letter. 
+2. Vigenere Cipher: Takes Caeser a step further by using a different number value for each letter. 
 
-    i. The math is complicated. 
-    ii. Includes a key. 
-    iii. Each letter of the plain text has a different caeser cipher. 
-    iv. an example: 
+        i. The math is complicated. 
+        ii. Includes a key. 
+        iii. Each letter of the plain text has a different caeser cipher. 
+        iv. an example: 
             - plain txt: tool (positions: 0,1,2,3) 
             - key: dead (positions: 3, 4,0, )j
 
@@ -30,7 +28,7 @@ from flask import Flask, render_template_string, request
 
 app = Flask(__name__)
 
-# Caesar Cipher Encryption Function
+# 1. Caesar Cipher Encryption Function
 def caesar_cipher(text, shift=3):
     encrypted_text = ""
     for char in text:
