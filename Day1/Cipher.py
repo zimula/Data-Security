@@ -40,6 +40,16 @@ def caesar_cipher(text, shift=3):
             encrypted_text += char
     return encrypted_text
 
+# 1.1. Decrypt
+def decrypt(text):
+    dec_text = ""
+    for char in text:
+        base = ord("a") if char.islower() else ord("A")
+        dec_char = (ord(char)- base) % 26
+        dec_text += dec_char
+    return dec_text
+
+
 
 
 @app.route('/', methods=['GET', 'POST'])
