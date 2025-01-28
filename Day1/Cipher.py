@@ -1,32 +1,4 @@
-""" 
-NOTES: 
-1: Caeser cipher: Works by substituting letters using integers. The integer represents a the position of in the alphabet.  
-    1.1: Can be solved using a simple maths like so: 
 
-        i. Encryption
-        En(x) = (x + n) mod 26
-        - mod: to ensure that if the result is greater than 26, it starts from the beginning.
-        - Divides by 26 and returns the remainder (new position) 
-
-        ii. Decryption
-        En(x) = (x-n) mod 26
-    
-        ***Requires to know the cipher number/shift. 
-
-2. Vigenere Cipher: Takes Caeser a step further by using a different number value for each letter. 
-
-        i. The math is complicated. 
-        ii. Includes a key. 
-        iii. Each letter of the plain text has a different caeser cipher. 
-        iv. an example: 
-            - plain txt: tool (positions: 0,1,2,3) 
-            - key: dead (positions: 3, 4,0, )j
-
-
-"""
-from flask import Flask, render_template_string, request
-
-app = Flask(__name__)
 
 # 1. Caesar Cipher Encryption Function
 letters = 'abcdefghijklmnopqrstuvwxyz'
@@ -45,27 +17,46 @@ def caeser_cipher(text, shift):
                 encrypted_text += letters[new_index]
     return encrypted_text
 
-# 1.1. Decrypt
-def decrypt(text):
-    dec_text = ""
-    for char in text:
-        base = ord("a") if char.islower() else ord("A")
-        dec_char = (ord(char)- base) % 26
-        dec_text += dec_char
-    return dec_text
+# 1.1. Decryption Function
+def decrypt(text, shift):
+    decrypted_text = ""
+    for letter in text:
+        letter = letter.lower()
+        if not letter == '':
+            index = letters.find(letter)
+            if index == -1:
+                decrypted_text += letter
+            else:
+                new_index = (index - shift) % 26
+                decrypted_text += letters[new_index]
+    return decrypted_text
 
 
 
 
+
+#=====================================================================================
+from flask import Flask, render_template_string, request
+
+app = Flask(__name__)
+
+#==========================ROUTE HANDLER=================================================
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    output = None
+    encrypted_output = None
+    decrypted_output = None
+
     if request.method == 'POST':
         user_input = request.form.get('user_input', '')
-        shift = int(request.form.get('shift', 3))  # Get shift value from form
-        encrypted_text = caeser_cipher(user_input, shift)  # Encrypt the input
-        output = f'Original: {user_input}<br>Encrypted: {encrypted_text}'
-    return render_template_string(HTML_TEMPLATE, output=output)
+        shift = int(request.form.get('shift', 3))
+        action = request.form.get('action', '')
+
+        if action == 'encrypt':
+            encrypted_output = caeser_cipher(user_input, shift)
+        elif action == 'decrypt':
+            decrypted_output = decrypt(user_input, shift)
+
+    return render_template_string(HTML_TEMPLATE, encrypted_output=encrypted_output, decrypted_output=decrypted_output)
 
 
 HTML_TEMPLATE = """
@@ -75,19 +66,38 @@ HTML_TEMPLATE = """
     <title>Tiny Web App with Caesar Cipher</title>
 </head>
 <body>
-    <h1>Welcome to the Tiny Web App!</h1>
+    <h1>Decription App</h1>
+    
+    <!-- Encryption Form -->
+    <h2>Encrypt Text</h2>
     <form method="POST">
-        <label for="user_input">Enter something:</label>
-        <input type="text" id="user_input" name="user_input" required>
+        <label for="encrypt_input">Enter text to encrypt:</label>
+        <input type="text" id="encrypt_input" name="user_input" required>
         <br>
         <label for="shift">Number of shifts (integer):</label>
         <input type="number" id="shift" name="shift" required>
         <br>
-        <button type="submit">Encrypt</button>
+        <button type="submit" name="action" value="encrypt">Encrypt</button>
     </form>
-    {% if output %}
+    {% if encrypted_output %}
     <h2>Encrypted Output:</h2>
-    <p>{{ output }}</p>
+    <p>{{ encrypted_output }}</p>
+    {% endif %}
+    
+    <!-- Decryption Form -->
+    <h2>Decrypt Text</h2>
+    <form method="POST">
+        <label for="decrypt_input">Enter text to decrypt:</label>
+        <input type="text" id="decrypt_input" name="user_input" required>
+        <br>
+        <label for="shift">Number of shifts (integer):</label>
+        <input type="number" id="shift" name="shift" required>
+        <br>
+        <button type="submit" name="action" value="decrypt">Decrypt</button>
+    </form>
+    {% if decrypted_output %}
+    <h2>Decrypted Output:</h2>
+    <p>{{ decrypted_output }}</p>
     {% endif %}
 </body>
 </html>
@@ -97,7 +107,10 @@ if __name__ == '__main__':
     app.run(debug=True) 
 
 
-"""def caesar_cipher(text, shift=3):
+"""
+ALTERNATIVE FUNCTIONS: 
+- must revise string manipulation. 
+def encrypt(text, shift=3):
     encrypted_text = ''
     for char in text:
         if char.isalpha():
@@ -106,4 +119,13 @@ if __name__ == '__main__':
             encrypted_text += shifted_char
         else:
             encrypted_text += char
-    return encrypted_text"""
+    return encrypted_text
+    
+    def decrypt(text, shift):
+    dec_text = ""
+    for char in text:
+        base = ord("a") if char.islower() else ord("A")
+        dec_char = (ord(char)- base - shift) % 26
+        dec_text += dec_char
+    return dec_text
+    """
