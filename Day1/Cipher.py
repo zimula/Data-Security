@@ -1,16 +1,18 @@
 """ 
+NOTES: 
 1: Caeser cipher:
-Works by substituting letters with other a given number of steps away. 
+Works by substituting letters using integers. The integer represents a the position of in the alphabet.  
 1.1: Can be solved using a simple maths like so: 
 
     i. Encryption
         En(x) = (x + n) mod 26
-        - mod: to ensure that if the result is greater than 26, it starts from the beginning. 
+        - mod: to ensure that if the result is greater than 26, it starts from the beginning.
+        - Divides by 26 and returns the remainder (new position) 
 
     ii. Decryption
         En(x) = (x-n) mod 26
     
-    ***Requires to know the cipher number/shift/etc. 
+    ***Requires to know the cipher number/shift. 
 
 2. Vigenere Cipher: Takes Caeser a step further by using a different number value 
     for each letter. 
@@ -32,16 +34,26 @@ app = Flask(__name__)
 def caesar_cipher(text, shift=3):
     encrypted_text = ""
     for char in text:
-        if char.isalpha():  # Only shift alphabetic characters
-            shift_amount = shift % 26  # Ensure shift is within 0-25
-            if char.islower():
-                base = ord('a')
-            else:
-                base = ord('A')
-            encrypted_text += chr((ord(char) - base + shift_amount) % 26 + base)
+        if char.isalpha():
+            base = ord('a') if char.islower() else ord('A')
+            shifted_char = chr((ord(char) - base + shift) % 26 + base)
+            encrypted_text += shifted_char
         else:
-            encrypted_text += char  # Non-alphabetic characters remain unchanged
+            encrypted_text += char
     return encrypted_text
+
+
+
+@app.route('/', methods=['GET', 'POST'])
+def home():
+    output = None
+    if request.method == 'POST':
+        user_input = request.form.get('user_input', '')
+        shift = int(request.form.get('shift', 3))  # Get shift value from form
+        encrypted_text = caesar_cipher(user_input, shift)  # Encrypt the input
+        output = f'Original: {user_input}<br>Encrypted: {encrypted_text}'
+    return render_template_string(HTML_TEMPLATE, output=output)
+
 
 HTML_TEMPLATE = """
 <!DOCTYPE html>
@@ -67,16 +79,6 @@ HTML_TEMPLATE = """
 </body>
 </html>
 """
-
-@app.route('/', methods=['GET', 'POST'])
-def home():
-    output = None
-    if request.method == 'POST':
-        user_input = request.form.get('user_input', '')
-        shift = int(request.form.get('shift', 3))  # Get shift value from form
-        encrypted_text = caesar_cipher(user_input, shift)  # Encrypt the input
-        output = f'Original: {user_input}<br>Encrypted: {encrypted_text}'
-    return render_template_string(HTML_TEMPLATE, output=output)
 
 if __name__ == '__main__':
     app.run(debug=True) 
