@@ -25,14 +25,14 @@
         P_i = (C_i - K_i + 26) % 26
         - Adding 26 ensures the result is non-negative
 
-    iii. Each letter of the plaintext is encrypted using a different Caesar cipher based on the corresponding letter of the key.
+    iii. Each letter of the plaintext is encrypted using a different Caesar cipher based on the               corresponding letter of the key.
 
     iv. Example:
-        - Plaintext: TOOL (positions: 19, 14, 14, 11)
-        - Key: DEAD (repeated to match plaintext length: DEAD, positions: 3, 4, 0, 3)
-        - Encryption:
-            - T (19) + D (3) = W (22)
-            - O (14) + E (4) = S (18)
-            - O (14) + A (0) = O (14)
+       - Plaintext: TOOL (positions: 19, 14, 14, 11)
+       - Key: DEAD (repeated to match plaintext length: DEAD, positions: 3, 4, 0, 3)
+       - Encryption:
+            T (19) + D (3) = W (22)
+            O (14) + E (4) = S (18)
+            O (14) + A (0) = O (14)
             - L (11) + D (3) = O (14)
-        - Ciphertext: WSOO
+            Ciphertext: WSOO
