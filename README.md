@@ -26,7 +26,7 @@
         P_i = (C_i - K_i + 26) % 26
         - Adding 26 ensures the result is non-negative
 
-        iii. Each letter of the plaintext is encrypted using a different Caesar cipher based on the               corresponding letter of the key.
+        iii. Each letter of the plaintext is encrypted using a different Caesar cipher based on the corresponding letter of the key.
 
         iv. Example:
        - Plaintext: TOOL (positions: 19, 14, 14, 11)
