@@ -1,18 +1,17 @@
 # INTRO TO ENCRYPTION
-1. Caeser cipher: Works by substituting letters using integers. The integer represents a the position of in the alphabet.  
-    1.1. Can be solved using a simple maths like so: 
+1. Caesar cipher: Works by substituting letters using integers. The integer represents the position in the alphabet.
+    1.1. Can be solved using simple math like so:
 
-        i. Encryption
+        i. Encryption:
         En(x) = (x + n) mod 26
-        - mod: to ensure that if the result is greater than 26, it starts from the beginning.
-        - Divides by 26 and returns the remainder (new position) 
+        - mod: to ensure that if the result is greater than 25, it starts from the beginning.
+        - Divides by 26 and returns the remainder (new position)
 
-        ii. Decryption
-        En(x) = (x-n) mod 26
-    
-        ***Requires to know the cipher number/shift. 
+        ii. Decryption:
+        Dn(x) = (x - n + 26) mod 26
+        - Adding 26 ensures the result is non-negative
 
-
+        ***Requires knowing the cipher number/shift.
 
 2. Vigenère Cipher: Takes Caesar a step further by using a different number value for each letter based on a keyword.
 
