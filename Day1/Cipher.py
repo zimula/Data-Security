@@ -128,4 +128,51 @@ def encrypt(text, shift=3):
         dec_char = (ord(char)- base - shift) % 26
         dec_text += dec_char
     return dec_text
+
+
+    ***********************VIGENEERE******************************
+    # 2. Vigenère Cipher Encryption Function
+def vigenere_cipher(text, keyword):
+    encrypted_text = ""
+    keyword_repeated = ""
+    keyword_length = len(keyword)
+    text_length = len(text)
+    
+    for i in range(text_length):
+        keyword_repeated += keyword[i % keyword_length]
+    
+    for i in range(text_length):
+        letter = text[i].lower()
+        if letter in letters:
+            text_index = letters.find(letter)
+            keyword_index = letters.find(keyword_repeated[i].lower())
+            new_index = (text_index + keyword_index) % 26
+            encrypted_text += letters[new_index]
+        else:
+            encrypted_text += letter
+    
+    return encrypted_text
+
+# 2.1. Vigenère Cipher Decryption Function
+def vigenere_decrypt(text, keyword):
+    decrypted_text = ""
+    keyword_repeated = ""
+    keyword_length = len(keyword)
+    text_length = len(text)
+    
+    for i in range(text_length):
+        keyword_repeated += keyword[i % keyword_length]
+    
+    for i in range(text_length):
+        letter = text[i].lower()
+        if letter in letters:
+            text_index = letters.find(letter)
+            keyword_index = letters.find(keyword_repeated[i].lower())
+            new_index = (text_index - keyword_index) % 26
+            decrypted_text += letters[new_index]
+        else:
+            decrypted_text += letter
+    
+    return decrypted_text
+
     """
