@@ -14,20 +14,21 @@
         ***Requires knowing the cipher number/shift.
 
 2. Vigenère Cipher: Takes Caesar a step further by using a different number value for each letter based on a keyword.
+    2.1. Can be solve using the following formula: 
 
-    i. Encryption:
+        i. Encryption:
         C_i = (P_i + K_i) % 26
         - P_i: Position of the plaintext letter in the alphabet (A=0, B=1, ..., Z=25)
         - K_i: Position of the key letter in the alphabet (A=0, B=1, ..., Z=25)
         - C_i: Position of the ciphertext letter in the alphabet (A=0, B=1, ..., Z=25)
 
-    ii. Decryption:
+        ii. Decryption:
         P_i = (C_i - K_i + 26) % 26
         - Adding 26 ensures the result is non-negative
 
-    iii. Each letter of the plaintext is encrypted using a different Caesar cipher based on the               corresponding letter of the key.
+        iii. Each letter of the plaintext is encrypted using a different Caesar cipher based on the               corresponding letter of the key.
 
-    iv. Example:
+        iv. Example:
        - Plaintext: TOOL (positions: 19, 14, 14, 11)
        - Key: DEAD (repeated to match plaintext length: DEAD, positions: 3, 4, 0, 3)
        - Encryption:
