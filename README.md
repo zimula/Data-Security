@@ -12,7 +12,7 @@
     
         ***Requires to know the cipher number/shift. 
 
-2. Vigenere Cipher: Takes Caeser a step further by using a different number value for each letter. 
+2. (Must Revise)Vigenere Cipher: Takes Caeser a step further by using a different number value for each letter. 
 
         i. The math is complicated. 
         ii. Includes a key. 
