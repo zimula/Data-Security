@@ -41,14 +41,16 @@
             Ciphertext: WSOO
 
 ## Day 2: Encryption TLS.
-2.1. Encryption
+2. Encryption
+
     i. Cornerstones
         - Confidenciality: Ability to restrict data/ parts of it to some users.  
         - Authenticity: Ability to confirm the the identity of both recipient and data source. 
         - Integrity: Confirm that data has not been interfered with during transfer. 
         - Non Repudiation:Data source must not be able to deny that it's the souce.  
-2.2. Illustration via GnuPG
-2.2.1. GnuPG (GNU privacy guard):
+2.1. Illustration via GnuPG
+2.1.1. GnuPG (GNU privacy guard):
+
     A free open source software for encrypting and signing data. 
     The tool does the following
     i. Encryption: both files and messages. 
@@ -57,12 +59,13 @@
     iv. Email security: encrypt and sign emails. 
     v. File encryption: Used to encrypt individual files.  
     vi. Secure communication: chat and file transfer encryption. 
-2.3. How it works
+2.2. How it works
+
     i. Symmetric-key cryptography:for fast encryption of large amounts of data. 
     ii. Assymmetric/ Public-key cryptography: for secure key exchange. 
     iii. Steps: 
         - generating key pairs: each user creates a pair of keys (public and private).  
         - encrypting data: encrypt message using public key (requires matching private key to decrypt). 
         - signing data: uses private and is verified using matching public key.
-2.4. How to use GnuPG
+2.3. How to use GnuPG
   
