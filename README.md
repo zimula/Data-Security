@@ -1,4 +1,6 @@
 # INTRO TO ENCRYPTION
+
+## Day 1: Classical ciphers/ basic encryption. 
 1. Caesar cipher: Works by substituting letters using integers. The integer represents the position in the alphabet.
     1.1. Can be solved using simple math like so:
 
@@ -37,3 +39,36 @@
             O (14) + A (0) = O (14)
             - L (11) + D (3) = O (14)
             Ciphertext: WSOO
+
+## Day 2: Encryption TLS.
+3. Cornerstones og Encryption
+
+        i. Confidenciality: Ability to restrict data/ parts of it to some users.  
+        ii. Authenticity: Ability to confirm the the identity of both recipient and data source. 
+        iii. Integrity: Confirm that data has not been interfered with during transfer.
+        v. Non Repudiation:Data source must not be able to deny that it's the souce. 
+
+3.1. Illustration via GnuPG
+
+3.1.1. GnuPG (GNU privacy guard):
+
+A free open source software for encrypting and signing data. 
+    
+    The tool does the following
+        i. Encryption: both files and messages. 
+        ii. Digital signatures: add digital signatures to data for authentication and guarantee safety in transit.
+        iii. Key management: generating, storing & managing cryptographic keys (public and private keys). 
+        iv. Email security: encrypt and sign emails. 
+        v. File encryption: Used to encrypt individual files.  
+        vi. Secure communication: chat and file transfer encryption. 
+3.2. How it works
+
+    i. Symmetric-key cryptography:for fast encryption of large amounts of data. 
+    ii. Assymmetric/ Public-key cryptography: for secure key exchange. 
+    iii. Steps: 
+        - generating key pairs: each user creates a pair of keys (public and private).  
+        - encrypting data: encrypt message using public key (requires matching private key to decrypt). 
+        - signing data: uses private and is verified using matching public key.
+
+3.3. How to use GnuPG
+  
