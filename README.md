@@ -42,10 +42,10 @@
 
 ## Day 2: Encryption TLS.
 3. Cornerstones og Encryption
-        a. Confidenciality: Ability to restrict data/ parts of it to some users.  
-        b. Authenticity: Ability to confirm the the identity of both recipient and data source. 
-        c. Integrity: Confirm that data has not been interfered with during transfer. 
-        d. Non Repudiation:Data source must not be able to deny that it's the souce. 
+    i. Confidenciality: Ability to restrict data/ parts of it to some users.  
+    ii. Authenticity: Ability to confirm the the identity of both recipient and data source. 
+    iii. Integrity: Confirm that data has not been interfered with during transfer. 
+    iv. Non Repudiation:Data source must not be able to deny that it's the souce. 
 
 3.1. Illustration via GnuPG
 
