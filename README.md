@@ -41,9 +41,7 @@
             Ciphertext: WSOO
 
 ## Day 2: Encryption TLS.
-3. Encryption
-    
-    Cornerstones
+3. Cornerstones og Encryption
         a. Confidenciality: Ability to restrict data/ parts of it to some users.  
         b. Authenticity: Ability to confirm the the identity of both recipient and data source. 
         c. Integrity: Confirm that data has not been interfered with during transfer. 
