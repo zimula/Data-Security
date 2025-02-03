@@ -48,7 +48,7 @@
         iii. Integrity: Confirm that data has not been interfered with during transfer.
         v. Non Repudiation:Data source must not be able to deny that it's the souce. 
 
-3.1. Illustration via GnuPG
+3.1. Illustration via GnuPG/ GPG4WWin
 
 3.1.1. GnuPG (GNU privacy guard):
 
@@ -71,4 +71,18 @@ A free open source software for encrypting and signing data.
         - signing data: uses private and is verified using matching public key.
 
 3.3. How to use GnuPG
+        
+        i. On windows: install gpg4win. 
+        ii. open cmd: 
+            - type gpg --list-key (finds the directory automatically)
+            - type gpg --gen-key (prompts for a secret phrase) and generates private and public key. 
+            - Private key is not include in the output. 
+            - gpg --edit-key: lets you edit key attributes. 
+            - gpg --delete-key <id>: lets you delete key. 
+            - gpg --export -a "user_id" > "path\outputfile.asc": exports file to another folder. 
+            - gpg --import "path\file": imports key
+            - gpg --edit-key id from import: 
+            - fpr: confirms key. 
+        iii. Making keys available for download (key.opengpg.org)
+
   
