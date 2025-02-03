@@ -83,6 +83,11 @@ A free open source software for encrypting and signing data.
             - gpg --import "path\file": imports key
             - gpg --edit-key id from import: 
             - fpr: confirms key. 
-        iii. Making keys available for download (key.opengpg.org)
+        iii. Making public-key available
+            - use export method like above: make downloadable from site. 
+            - display on websit: fpr and paste it on site.
+            - key servers (keyp.opengpg.org will be used): gpg --send-keys --keyserver keys.opengpg.org "name" 
+            - failde when I used name but the id (3E65401BA3FAF2A1) worked fine. 
+
 
   
