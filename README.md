@@ -43,24 +43,24 @@
 ## Day 2: Encryption TLS.
 3. Cornerstones og Encryption
 
-    Encryption relies on following principles. 
-    i. Confidenciality: Ability to restrict data/ parts of it to some users.  
-    ii. Authenticity: Ability to confirm the the identity of both recipient and data source. 
-    iii. Integrity: Confirm that data has not been interfered with during transfer. 
-    iv. Non Repudiation:Data source must not be able to deny that it's the souce. 
+        i. Confidenciality: Ability to restrict data/ parts of it to some users.  
+        ii. Authenticity: Ability to confirm the the identity of both recipient and data source. 
+        iii. Integrity: Confirm that data has not been interfered with during transfer.
+        v. Non Repudiation:Data source must not be able to deny that it's the souce. 
 
 3.1. Illustration via GnuPG
 
 3.1.1. GnuPG (GNU privacy guard):
 
-    A free open source software for encrypting and signing data. 
+A free open source software for encrypting and signing data. 
+    
     The tool does the following
-    i. Encryption: both files and messages. 
-    ii. Digital signatures: add digital signatures to data for authentication and guarantee safety in transit.
-    iii. Key management: generating, storing & managing cryptographic keys (public and private keys). 
-    iv. Email security: encrypt and sign emails. 
-    v. File encryption: Used to encrypt individual files.  
-    vi. Secure communication: chat and file transfer encryption. 
+        i. Encryption: both files and messages. 
+        ii. Digital signatures: add digital signatures to data for authentication and guarantee safety in transit.
+        iii. Key management: generating, storing & managing cryptographic keys (public and private keys). 
+        iv. Email security: encrypt and sign emails. 
+        v. File encryption: Used to encrypt individual files.  
+        vi. Secure communication: chat and file transfer encryption. 
 3.2. How it works
 
     i. Symmetric-key cryptography:for fast encryption of large amounts of data. 
