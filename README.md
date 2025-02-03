@@ -1,4 +1,6 @@
 # INTRO TO ENCRYPTION
+
+## Day 1: Classical ciphers. 
 1. Caesar cipher: Works by substituting letters using integers. The integer represents the position in the alphabet.
     1.1. Can be solved using simple math like so:
 
@@ -37,3 +39,6 @@
             O (14) + A (0) = O (14)
             - L (11) + D (3) = O (14)
             Ciphertext: WSOO
+
+## Day 2: Encryption TLS.
+1. Testing
