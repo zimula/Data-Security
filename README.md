@@ -43,6 +43,7 @@
 ## Day 2: Encryption TLS.
 3. Cornerstones og Encryption
 
+    Encryption relies on following principles. 
     i. Confidenciality: Ability to restrict data/ parts of it to some users.  
     ii. Authenticity: Ability to confirm the the identity of both recipient and data source. 
     iii. Integrity: Confirm that data has not been interfered with during transfer. 
