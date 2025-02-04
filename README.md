@@ -88,6 +88,26 @@ A free open source software for encrypting and signing data.
             - display on websit: fpr and paste it on site.
             - key servers (keyp.opengpg.org will be used): gpg --send-keys --keyserver keys.opengpg.org "name" 
             - failde when I used name but the id (3E65401BA3FAF2A1) worked fine. 
+        iv. Encrypting a file (either by username or key id)
+            - gpg -r "username" -e file
+            - output: file.extension.gpg
+            - opening before decryption: „^’<î¾c@ýoxé!Í€d}2J³|?)ÄìöN~_5‘ñ×¿Zþ0ÕŒã0ìŠ)Ÿ“XzâNm~‹í9¬CCßÚ¯¼$=Ü÷1Ù -„!{d…ÔÀo	Ð#"£PÍÓM,m¸’Ñÿ²rÕ-¼Á¥9Þ*üy~‚AÂƒ_(Š|Ë’SØý®ÉïüvJÑŠ ôÑËp97àÂÄVµ¦YûTõ¨QQ}Â™=Uý•í9Ñ «¢ÅF_iEO0®ÖPóÚ…è<w“±^MDJŸdæß¥Y ‡jåÆ¡Ô}Í¥Xa6·;›U¯átHr¥0å¼Œçüºdp[L!;¼Ø¿dN§zrËÉ[WX8ÿ¾$Œ.€4c¶\ÖìK>“ÎþuV7éÞgç¡²™ýZ ð%UÝéÛ½ù,áñnL:„‚"ÂØ£#’cŽ2DšßKIÿ|óF#/1v¯Ô|':d)Qg;eæúx2Éøé'Á8ˆŒP#p¤ÒÖlQÀÕŒ…ã¡E1Ù“k‚K
+        v. Decryption: 
+            -gpg -d Encryption_test.txt.gpg
+            - output: gpg: encrypted with cv25519 key, ID
+            921D163CEEBE1063, created 2025-02-03
+            "Martin Zimula <zimula@live.dk>"
+            name: Martin Zimula
+            email: zimula@live.dk
+            phrase: Testing123
+
+            output from cmd:
+            pub   ed25519 2025-02-03 [SC] [expires: 2028-02-03]
+            64246580A3AD4578FE1ED2693E65401BA3FAF2A1
+            uid           [ultimate] Martin Zimula <zimula@live.dk>
+            sub   cv25519 2025-02-03 [E] [expires: 2028-02-03]
+            message: Hello!.
+
 
 
   

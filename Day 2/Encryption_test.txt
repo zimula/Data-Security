@@ -7,3 +7,5 @@ pub   ed25519 2025-02-03 [SC] [expires: 2028-02-03]
       64246580A3AD4578FE1ED2693E65401BA3FAF2A1
 uid           [ultimate] Martin Zimula <zimula@live.dk>
 sub   cv25519 2025-02-03 [E] [expires: 2028-02-03]
+
+message: Hello!. 
