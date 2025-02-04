@@ -107,7 +107,15 @@ A free open source software for encrypting and signing data.
             uid           [ultimate] Martin Zimula <zimula@live.dk>
             sub   cv25519 2025-02-03 [E] [expires: 2028-02-03]
             message: Hello!.
+3.4. TLS 
+
+## Day 3: Hashing
+4. Hashing algorithms: they differ in the complexity of hashes they produce.  
+    i. md5
+    ...
+    viii. bcrypt 
+
+4.1. Collision: String resulting in similar hashes. Probability is low with existing algorithms. 
+4.2. Assignment to check if a password is on the rokyu.text. 
 
 
-
-  
