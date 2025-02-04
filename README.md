@@ -118,4 +118,16 @@ A free open source software for encrypting and signing data.
 4.1. Collision: String resulting in similar hashes. Probability is low with existing algorithms. 
 4.2. Assignment to check if a password is on the rokyu.text. 
 
+### Steps in solving the exercises. 
+    - get rockyou.txt
+    - create an app
+    - add a database
+    - create a user table (user_id, user_name_, user_password as blob (bcrypt hash), )
+    - on passwrord creation compare with rockyou.txt. 
+    - use singleton pattern to deal with the text file. 
+    - add modules to gitignore
+#### singleton pattern and relevance to the assignment
+    i. Allows to create just one instanc of a class. 
+    ii. 
+
 
