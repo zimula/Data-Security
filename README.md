@@ -108,6 +108,13 @@ A free open source software for encrypting and signing data.
             sub   cv25519 2025-02-03 [E] [expires: 2028-02-03]
             message: Hello!.
 3.4. TLS 
+Simple diagram and explanation.
+
+![alt text](image-2.png)
+
+    Basically, the client shares a key with the server 
+    before sending encrypted data. 
+    The server uses the key to decrypt the data (revise osi). 
 
 ## Day 3: Hashing
 4. Hashing algorithms: they differ in the complexity of hashes they produce.  
