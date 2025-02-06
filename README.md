@@ -107,7 +107,34 @@ A free open source software for encrypting and signing data.
             uid           [ultimate] Martin Zimula <zimula@live.dk>
             sub   cv25519 2025-02-03 [E] [expires: 2028-02-03]
             message: Hello!.
+3.4. TLS 
+Simple diagram and explanation.
+
+![alt text](image-2.png)
+
+    Basically, the client shares a key with the server 
+    before sending encrypted data. 
+    The server uses the key to decrypt the data (revise osi). 
+
+## Day 3: Hashing
+4. Hashing algorithms: they differ in the complexity of hashes they produce.  
+    i. md5
+    ...
+    viii. bcrypt 
+
+4.1. Collision: String resulting in similar hashes. Probability is low with existing algorithms. 
+4.2. Assignment to check if a password is on the rokyu.text. 
+
+### Steps in solving the exercises. 
+    - get rockyou.txt
+    - create an app
+    - add a database
+    - create a user table (user_id, user_name_, user_password as blob (bcrypt hash), )
+    - on passwrord creation compare with rockyou.txt. 
+    - use singleton pattern to deal with the text file. 
+    - add modules to gitignore
+#### singleton pattern and relevance to the assignment
+    i. Allows to create just one instanc of a class. 
+    ii. 
 
 
-
-  
