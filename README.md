@@ -133,6 +133,7 @@ Simple diagram and explanation.
     - on passwrord creation compare with rockyou.txt. 
     - use singleton pattern to deal with the text file. 
     - add modules to gitignore
+#### So far, a basic application that registers user information as dictionaries inside a list. 
 #### singleton pattern and relevance to the assignment
     i. Allows to create just one instanc of a class. 
     ii. 
