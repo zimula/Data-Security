@@ -1,7 +1,20 @@
 # Hash format must be in byte. 
 #import bcrypt: Implementeres senere
 #import hashlib: Implementeres senere
+import bcrypt
 from flask import Flask, render_template_string, request
+
+
+#hasing password
+def hash_password(password):
+    salt = bcrypt.gensalt()
+    hashed = bcrypt.hashpw(password.encode('utf-8'), salt)
+    return hashed
+
+
+
+
+
 
 app = Flask(__name__)
 
@@ -16,11 +29,12 @@ def register():
     if request.method == 'POST':
         name = request.form.get('name', '').strip()
         email = request.form.get('email', '').strip()
-        password = request.form.get('password', '').strip()
+        password = hash_password(request.form.get('password', '').strip())
         if name and email and password:
             members.append({'name': name, 'email': email, 'password': password})
+            #confirm list and hashed password. 
             message = f"Member {name} registered successfully!"
-            print ("Number of members: ",len(members))
+            print ("Number of members: ",len(members), "password: ", password)
         else:
             message = "Please enter name, email, and password."
     return render_template_string(HTML_TEMPLATE, message=message)
