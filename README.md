@@ -134,6 +134,7 @@ Simple diagram and explanation.
     - use singleton pattern to deal with the text file. 
     - add modules to gitignore
 #### So far, a basic application that registers user information as dictionaries inside a list. 
+#### Schema complet. 
 #### singleton pattern and relevance to the assignment
     i. Allows to create just one instanc of a class. 
     ii. 
