@@ -3,6 +3,7 @@
 #import hashlib: Implementeres senere
 import bcrypt
 from flask import Flask, render_template_string, request
+from db import insert_member, get_all
 
 
 #hasing password
@@ -35,6 +36,7 @@ def register():
         hashed = hash_password(password)
         if name and email and password:
             members.append({'name': name, 'email': email, 'password': password})
+            insert_member(name, email, hashed)
             #confirm list and hashed password. 
             message = f"Member {name} registered successfully!"
             print ("Number of members: ",len(members), "password: ", hashed)
