@@ -3,7 +3,7 @@
 class PasswordChecker:
     
     _instance = None
-
+    #See if there existes an instance of the class
     def __new__(cls, file_path):
         if cls._instance is None:
             
@@ -17,10 +17,11 @@ class PasswordChecker:
     #load passwords from file
     def load_passwords(self):
         try:
-            with open(self.file_path, 'r') as f:
+            with open(self.file_path, 'r', encoding="latin-1") as f:
                 self.passwords = set(line.strip() for line in f)
         except FileNotFoundError:
             self.passwords = set()
-    
+            
+    #See if password is in the list
     def is_password_in_file(self, password):
         return password in self.passwords
