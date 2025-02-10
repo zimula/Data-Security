@@ -128,9 +128,10 @@ Simple diagram and explanation.
     - on passwrord creation compare with rockyou.txt. 
     - use singleton pattern to deal with the text file. 
     - add modules to gitignore
-#### 4.2.1. Schema and db complete.
+#### 4.2.1. Hash functions, Schema and db complete.
     - Has the following attributes: id, name, mail, hashed password
     - db connector/ initializer and crud are in db.py
+    - Function to hash and one to check if the hash produces the same string as user-input. 
 #### 4.2.2. singleton pattern and relevance to the assignment
     - Allows to create just one instanc of a class. 
     - Global point of access for resource (rockyou.txt in our case). 
