@@ -117,26 +117,34 @@ Simple diagram and explanation.
     The server uses the key to decrypt the data (revise osi). 
 
 ## Day 3: Hashing
-4. Hashing algorithms: they differ in the complexity of hashes they produce.  
-    i. md5
-    ...
-    viii. bcrypt 
-
-4.1. Collision: String resulting in similar hashes. Probability is low with existing algorithms. 
-4.2. Assignment to check if a password is on the rokyu.text. 
-
-### Steps in solving the exercises. 
+- Hashing algorithms: they differ in the complexity of hashes they produce.
+- Collision: String resulting in similar hashes. Probability is low with existing algorithms. 
+ 
+### 4.2. Assignment: Steps in solving the exercises. 
     - get rockyou.txt
     - create an app
     - add a database
-    - create a user table (user_id, user_name_, user_password as blob (bcrypt hash), )
+    - create a user table (user_id, user_name_, user_password as blob (bcrypt hash), ) 
     - on passwrord creation compare with rockyou.txt. 
     - use singleton pattern to deal with the text file. 
     - add modules to gitignore
-#### So far, a basic application that registers user information as dictionaries inside a list. 
-#### Schema complet. 
-#### singleton pattern and relevance to the assignment
-    i. Allows to create just one instanc of a class. 
-    ii. 
+#### 4.2.1. Schema and db complete.
+    - Has the following attributes: id, name, mail, hashed password
+    - db connector/ initializer and crud are in db.py
+#### 4.2.2. singleton pattern and relevance to the assignment
+    - Allows to create just one instanc of a class. 
+    - Global point of access for resource (rockyou.txt in our case). 
+    - Make sure there's only one instance of a class throughout the entire lifetime of a program.  
+    i. Types
+        - module: Data is shared among all the modules. 
+        - classic: Create instance only if none are created so far. 
+        - borg: Allows state sharing for different instance. 
+    ii. Real life use cases
+        - managing database connections. 
+        - Logging
+        - File manager
+        - rockyou.txt: use it as the criterion for password. 
+
+    
 
 
