@@ -1,9 +1,8 @@
-# Hash format must be in byte. 
-#import bcrypt: Implementeres senere
-#import hashlib: Implementeres senere
 import bcrypt
 from flask import Flask, render_template_string, request
 from db import insert_member, get_all
+from singleton import PasswordChecker
+import os
 
 
 #hasing password
@@ -16,11 +15,18 @@ def hash_password(password):
 def check_password(password, hashed):
     return bcrypt.checkpw(password.encode('utf-8'), hashed)
 
-
-
-
-
 app = Flask(__name__)
+
+#set file path for rockyou.txt(abspath makes sure the path is absolute)
+current_dir = os.path.dirname(os.path.abspath(__file__))
+file_path = os.path.join(current_dir, 'rockyou.txt')
+#feed passwordchecker with file path
+password_checker = PasswordChecker(file_path)
+
+
+
+
+
 
 
 # Will change it to a database table later. 
@@ -35,12 +41,19 @@ def register():
         password = request.form.get('password', '').strip()
         hashed = hash_password(password)
         if name and email and password:
-            members.append({'name': name, 'email': email, 'password': password})
-            insert_member(name, email, hashed)
-            #confirm list and hashed password. 
-            message = f"Member {name} registered successfully!"
-            print ("Number of members: ",len(members), "password: ", hashed)
-            print("Reversed: ", check_password(password, hashed ))
+            #add passwordchecker conditional
+            if password_checker.is_password_in_file(password):
+                message = "Password is too common. Please choose a different password."
+                return render_template_string(HTML_TEMPLATE, message=message)
+            else:
+                message = "Password is not in the list."
+
+                members.append({'name': name, 'email': email, 'password': password})
+                insert_member(name, email, hashed)
+                #confirm list and hashed password. 
+                message = f"Member {name} registered successfully!"
+                print ("Number of members: ",len(members), "password: ", hashed)
+                print("Reversed: ", check_password(password, hashed ))
         else:
             message = "Please enter name, email, and password."
     return render_template_string(HTML_TEMPLATE, message=message)
