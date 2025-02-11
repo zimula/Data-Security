@@ -158,16 +158,21 @@ Simple diagram and explanation.
 - Ways to protect systems.
 
 ### 5. SQL INJECTIONS
-- vulnerabilities
-- attacks
-- unauthorized access to a system
+    - vulnerabilities
+    - attacks
+    - unauthorized access to a system
 ### 6. Hacking
     - an application with vulnerabilities (build one)
     - an attack (attack it)
     - red team (' or 1=1;-- ) vs. blue team
     - optimizing the hashing: 
-    - sanitizing (salting + salting must be know in verification process)
+    - sanitizing: salting and prepared statements.
     - research target + social engineering
+### 7. Assignment¨
+    - continue on last assignment
+    - replace bcrypt with sha256
+    - add another table database users256
+
 
 
 
