@@ -171,7 +171,7 @@ Simple diagram and explanation.
 ### 7. Assignment¨
     - continue on last assignment
     - replace bcrypt with sha256
-    - add another table database users256
+    - add another table database users256 (id, userid (unique, varchar (32)), password, comments)
 
 
 
