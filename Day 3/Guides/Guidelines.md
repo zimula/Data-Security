@@ -41,3 +41,8 @@
    - Document complex logic to help others (and future you).  
    - Write comments that explain why something is done, not just how.  
 
+# Experiment with different tool 
+
+## mariadb and other. 
+## rewrite all my assignments in c#
+
