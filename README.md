@@ -120,7 +120,7 @@ Simple diagram and explanation.
 - Using algorithms to map data of any size to a bit string (message) of a fixed sized. 
 - Hashing algorithms: they differ in the complexity of hashes they produce (bcrypt, sha1, md5 etc).
 - Collision: String resulting in similar hashes. Probability is low with existing algorithms (when more than one value to be hashed points to the same slot int he hash table). 
-- Salt: add random data to hash. 
+- Salt: add random data to hash. Make the cracking process take longer.  
  
 ### 4.2. Assignment: Steps in solving the exercise (user registration app). 
 
@@ -164,8 +164,10 @@ Simple diagram and explanation.
 ### 6. Hacking
     - an application with vulnerabilities (build one)
     - an attack (attack it)
-    - 
-
+    - red team (' or 1=1;-- ) vs. blue team
+    - optimizing the hashing: 
+    - sanitizing (salting + salting must be know in verification process)
+    - research target + social engineering
 
 
 
