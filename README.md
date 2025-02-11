@@ -40,7 +40,7 @@
             - L (11) + D (3) = O (14)
             Ciphertext: WSOO
 
-## Day 2: Encryption TLS (Incomplete).
+## Day 2: Encryption + TLS (Incomplete).
 3. Cornerstones og Encryption
 
         i. Confidenciality: Ability to restrict data/ parts of it to some users.  
@@ -116,11 +116,11 @@ Simple diagram and explanation.
     before sending encrypted data. 
     The server uses the key to decrypt the data (revise osi). 
 
-## Day 3: Hashing
+## Day 3: Hashing and salting
 - Using algorithms to map data of any size to a bit string (message) of a fixed sized. 
 - Hashing algorithms: they differ in the complexity of hashes they produce (bcrypt, sha1, md5 etc).
 - Collision: String resulting in similar hashes. Probability is low with existing algorithms (when more than one value to be hashed points to the same slot int he hash table). 
-- Salt: add random data to hash. 
+- Salt: add random data to hash. Make the cracking process take longer.  
  
 ### 4.2. Assignment: Steps in solving the exercise (user registration app). 
 
@@ -153,8 +153,26 @@ Simple diagram and explanation.
         - rockyou.txt: use it as the criterion for password(singleton.py). 
 
 ## Day 4: Owasp (OPEN WORLD APPLICATON SECURITY PROJECT)
+- Nonprofit org that works to improve security of software. 
+- Incidents with code can be found on their website (option to experiment).
+- Ways to protect systems.
 
-### 5. Starting
-    
+### 5. SQL INJECTIONS
+    - vulnerabilities
+    - attacks
+    - unauthorized access to a system
+### 6. Hacking
+    - an application with vulnerabilities (build one)
+    - an attack (attack it)
+    - red team (' or 1=1;-- ) vs. blue team
+    - optimizing the hashing: 
+    - sanitizing: salting and prepared statements.
+    - research target + social engineering
+### 7. Assignment¨
+    - continue on last assignment
+    - replace bcrypt with sha256
+    - add another table database users256
+
+
 
 

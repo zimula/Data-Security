@@ -17,7 +17,7 @@ class PasswordChecker:
     #load passwords from file
     def load_passwords(self):
         try:
-            with open(self.file_path, 'r', encoding="latin-1") as f:
+            with open(self.file_path, 'r', encoding="latin-1") as f: #utf-8 can be used but errors must be ignored. 
                 self.passwords = set(line.strip() for line in f)
         except FileNotFoundError:
             self.passwords = set()
