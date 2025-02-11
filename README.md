@@ -40,7 +40,7 @@
             - L (11) + D (3) = O (14)
             Ciphertext: WSOO
 
-## Day 2: Encryption TLS.
+## Day 2: Encryption TLS (Incomplete).
 3. Cornerstones og Encryption
 
         i. Confidenciality: Ability to restrict data/ parts of it to some users.  
@@ -117,34 +117,40 @@ Simple diagram and explanation.
     The server uses the key to decrypt the data (revise osi). 
 
 ## Day 3: Hashing
-- Hashing algorithms: they differ in the complexity of hashes they produce.
-- Collision: String resulting in similar hashes. Probability is low with existing algorithms. 
+- Using algorithms to map data of any size to a bit string (message) of a fixed sized. 
+- Hashing algorithms: they differ in the complexity of hashes they produce (bcrypt, sha1, md5 etc).
+- Collision: String resulting in similar hashes. Probability is low with existing algorithms (when more than one value to be hashed points to the same slot int he hash table). 
+- Salt: add random data to hash. 
  
-### 4.2. Assignment: Steps in solving the exercises. 
-    - get rockyou.txt
-    - create an app
-    - add a database
-    - create a user table (user_id, user_name_, user_password as blob (bcrypt hash), ) 
-    - on passwrord creation compare with rockyou.txt. 
-    - use singleton pattern to deal with the text file. 
-    - add modules to gitignore
+### 4.2. Assignment: Steps in solving the exercise (user registration app). 
+
+    - promp to enter user id/ name and password. 
+    - Password must not be in rockyou.txt
+    - use singleton pattern to make avoid reading the file each time. 
+    - Reject common passwords with a message
+    - Acknowledge success of providing a unique password 
+    - Hash password using bcrypt and salt.
+    - test to see if hash produces same string
+    - user id/ name must be stored in database. 
+
 #### 4.2.1. Hash functions, Schema and db complete.
     - Has the following attributes: id, name, mail, hashed password
     - db connector/ initializer and crud are in db.py
     - Function to hash and one to check if the hash produces the same string as user-input. 
+
 #### 4.2.2. singleton pattern and relevance to the assignment
-    - Allows to create just one instanc of a class. 
+    - Allows to create just one instance of a class. 
     - Global point of access for resource (rockyou.txt in our case). 
     - Make sure there's only one instance of a class throughout the entire lifetime of a program.  
     i. Types
-        - module: Data is shared among all the modules. 
-        - classic: Create instance only if none are created so far. 
-        - borg: Allows state sharing for different instance. 
+        - module: Data is shared among all the modules (loaded one per program). 
+        - classic: Create instance only if none are created so far (overrides __new__ to ensure that only one instance is created).  
+        - borg: Instead of enforcing, it makes all instances share the same state. 
     ii. Real life use cases
         - managing database connections. 
         - Logging
         - File manager
-        - rockyou.txt: use it as the criterion for password. 
+        - rockyou.txt: use it as the criterion for password(singleton.py). 
 
     
 
