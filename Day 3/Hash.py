@@ -40,7 +40,7 @@ def register():
         email = request.form.get('email', '').strip()
         password = request.form.get('password', '').strip()
         hashed = hash_password(password)
-        if name and email and password:
+        if name and email and password and check_password(password, hashed):
             #add passwordchecker conditional
             if password_checker.is_password_in_file(password):
                 message = "Password is too common. Please choose a different password."
