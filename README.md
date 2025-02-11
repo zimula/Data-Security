@@ -1,6 +1,6 @@
-# INTRO TO ENCRYPTION
+# INTRODUCTION TO DATA SECURITY
 
-## Day 1: Classical ciphers/ basic encryption. 
+## Day 1: Encryption: Classical ciphers/ basic encryption. 
 1. Caesar cipher: Works by substituting letters using integers. The integer represents the position in the alphabet.
     1.1. Can be solved using simple math like so:
 
@@ -152,6 +152,9 @@ Simple diagram and explanation.
         - File manager
         - rockyou.txt: use it as the criterion for password(singleton.py). 
 
+## Day 4: Owasp (OPEN WORLD APPLICATON SECURITY PROJECT)
+
+### 5. Starting
     
 
 
