@@ -25,7 +25,7 @@ def insert_member (name, email, password):
     try:
         with get_db() as db:
             cursor = db.cursor()
-            cursor.execute("INSERT INTO users (name, email, password) VALUES (?, ?, ?)", (name, email, password))
+            cursor.execute("INSERT INTO users256 (name, email, password) VALUES (?, ?, ?)", (name, email, password))
             db.commit()
             return True, f"Member {name} added successfully"
     except sqlite3.IntegrityError:
@@ -34,7 +34,7 @@ def insert_member (name, email, password):
 def get_all():
     with get_db() as db:
         cursor = db.cursor()
-        cursor.execute("SELECT * FROM users")
+        cursor.execute("SELECT * FROM users256")
         return cursor.fetchall()
 
 #Initialize the database if it doesn't exist

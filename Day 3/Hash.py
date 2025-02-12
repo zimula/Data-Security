@@ -1,4 +1,5 @@
-import bcrypt
+#import bcrypt
+import hashlib
 from flask import Flask, render_template_string, request
 from db import insert_member, get_all
 from singleton import PasswordChecker
@@ -6,14 +7,21 @@ import os
 
 
 #hasing password
-def hash_password(password):
+""" def hash_password(password):
     salt = bcrypt.gensalt()
     hashed = bcrypt.hashpw(password.encode('utf-8'), salt)
-    return hashed
-
+    return hashed """
 #Checkig password. Rewrite to fetch hashed password from database.
+""" def check_password(password, hashed):
+    return bcrypt.checkpw(password.encode('utf-8'), hashed) """
+
+#Replacing bcrypt with hashlib.sha256
+def hash_password(password):
+    hashed = hashlib.sha256(password.encode('utf-8')).hexdigest()
+    return hashed
+#Checking password
 def check_password(password, hashed):
-    return bcrypt.checkpw(password.encode('utf-8'), hashed)
+    return hash_password(password) == hashed  
 
 app = Flask(__name__)
 
