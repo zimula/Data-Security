@@ -152,15 +152,22 @@ Simple diagram and explanation.
         - File manager
         - rockyou.txt: use it as the criterion for password(singleton.py). 
 
-## Day 4: Owasp (OPEN WORLD APPLICATON SECURITY PROJECT)
-- Nonprofit org that works to improve security of software. 
+## Day 4 (Solution in day 3 folder): Owasp (OPEN WORLD APPLICATON SECURITY PROJECT)
+- OSWAP is an open source nonprofit organization that works to improve security of software. 
 - Incidents with code can be found on their website (option to experiment).
-- Ways to protect systems.
+- The organization provides ways/ guides on how to protect systems.
 
 ### 5. SQL INJECTIONS
-    - vulnerabilities
-    - attacks
-    - unauthorized access to a system
+    - Gaining unauthorized access via the login screen.
+        i. routers: directs http request to the code that handles them. An example of one can be seen below. They are the easiest way to get in into a system if it's not protected.   
+ ![alt text](image-3.png)
+        ii. Handlers: These are the functions that process the http requests directed by router.  
+        iii. My test using red team attack: select name from users where email = '' or 1=1; -- '. This returned all the rows in the database.
+        iv. Remedies: 
+            a. optimization of the hash: salting. 
+            b. sanitizing: modifying/ validating input to ensure format before insertion.    
+            c. prepared statements: passing prepared sql statement limits direct interaction with the database. Arguments are replaced with "?" in the statements.  
+    
 ### 6. Hacking
     - an application with vulnerabilities (build one)
     - an attack (attack it)
@@ -168,10 +175,11 @@ Simple diagram and explanation.
     - optimizing the hashing: 
     - sanitizing: salting and prepared statements.
     - research target + social engineering
+    - cross side scritpting
 ### 7. Assignment¨
     - continue on last assignment
     - replace bcrypt with sha256
-    - add another table database users256
+    - add another table database users256 (id, userid (unique, varchar (32)), password, comments)
 
 
 
