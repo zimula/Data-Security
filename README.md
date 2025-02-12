@@ -162,10 +162,12 @@ Simple diagram and explanation.
         i. routers: directs http request to the code that handles them. An example of one can be seen below. They are the easiest way to get in into a system if it's not protected.   
  ![alt text](image-3.png)
         ii. Handlers: These are the functions that process the http requests directed by router.  
-            
-    - vulnerabilities
-    - attacks
-    - unauthorized access to a system
+        iii. My test using red team attack: select name from users where email = '' or 1=1; -- '. This returned all the rows in the database.
+        iv. Remedies: 
+            a. optimization of the hash: salting. 
+            b. sanitizing: modifying/ validating input to ensure format before insertion.    
+            c. prepared statements: passing prepared sql statement limits direct interaction with the database. Arguments are replaced with "?" in the statements.  
+    
 ### 6. Hacking
     - an application with vulnerabilities (build one)
     - an attack (attack it)

@@ -23,10 +23,6 @@ file_path = os.path.join(current_dir, 'rockyou.txt')
 #feed passwordchecker with file path
 password_checker = PasswordChecker(file_path)
 
-
-
-
-
 # Will change it to a database table later. 
 #members = [] 
 

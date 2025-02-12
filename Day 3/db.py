@@ -37,6 +37,6 @@ def get_all():
         cursor.execute("SELECT * FROM users")
         return cursor.fetchall()
 
-#Create Schema if it doesn't exist
+#Initialize the database if it doesn't exist
 if not os.path.exists(Database):
     init_db()
