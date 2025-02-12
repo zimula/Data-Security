@@ -124,7 +124,7 @@ USER_TEMPLATE = """
     <h2>All Users</h2>
     <ul>
     {% for user in users %}
-        <li>{{ user['name'] }} -- {{ user['email'] }} -- {{user['password']}}</li>
+        <li>{{ user['id'] }} -- {{ user['name'] }} -- {{ user['email'] }} -- {{user['password']}}</li>
     {% endfor %}
     </ul>
     <a href="/">Logout</a>
