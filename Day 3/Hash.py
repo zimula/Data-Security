@@ -27,10 +27,8 @@ password_checker = PasswordChecker(file_path)
 
 
 
-
-
 # Will change it to a database table later. 
-members = [] 
+#members = [] 
 
 @app.route('/', methods=['GET', 'POST'])
 def register():
@@ -48,29 +46,44 @@ def register():
             else:
                 message = "Password is not in the list."
 
-                members.append({'name': name, 'email': email, 'password': password})
+                #members.append({'name': name, 'email': email, 'password': password})
                 insert_member(name, email, hashed)
                 #confirm list and hashed password. 
                 message = f"Member {name} registered successfully!"
-                print ("Number of members: ",len(members), "password: ", hashed)
+                #print ("Number of members: ",len(members), "password: ", hashed)
                 print("Reversed: ", check_password(password, hashed ))
         else:
             message = "Please enter name, email, and password."
     return render_template_string(HTML_TEMPLATE, message=message)
 
 
+@app.route('/login', methods=['POST'])
+def login():
+    message = None
+    email = request.form.get('email', '').strip()
+    password = request.form.get('password', '').strip()
+    if email and password:
+        members = get_all()
+        member = next((m for m in members if m['email'] == email), None)
+        if member and check_password(password, member['password']):
+            return render_template_string(USER_TEMPLATE, name=member['name'], email=member['email'], users=members)
+        else:
+            message = "Invalid email or password."
+    else:
+        message = "Please enter email and password."
+    return render_template_string(HTML_TEMPLATE, message=message)
 
 
-
+#***************HTML Templates & Main guard*******************
 HTML_TEMPLATE = """
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Member Registration</title>
+    <title>Member Registration and Login</title>
 </head>
 <body>
     <h1>Register a New Member</h1>
-    <form method="POST">
+    <form method="POST" action="/">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
         <label for="email">Email:</label>
@@ -79,9 +92,38 @@ HTML_TEMPLATE = """
         <input type="password" id="password" name="password" required>
         <button type="submit">Register</button>
     </form>
+    <h1>Login</h1>
+    <form method="POST" action="/login">
+        <label for="email">Email:</label>
+        <input type="email" id="login_email" name="email" required>
+        <label for="password">Password:</label>
+        <input type="password" id="login_password" name="password" required>
+        <button type="submit">Login</button>
+    </form>
     {% if message %}
     <h2>{{ message }}</h2>
     {% endif %}
+</body>
+</html>
+"""
+
+
+USER_TEMPLATE = """
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Dashboard</title>
+</head>
+<body>
+    <h1>Welcome, {{ name }}!</h1>
+    <p>Email: {{ email }}</p>
+    <h2>All Users</h2>
+    <ul>
+    {% for user in users %}
+        <li>{{ user['name'] }} -- {{ user['email'] }} -- {{user['password']}}</li>
+    {% endfor %}
+    </ul>
+    <a href="/">Logout</a>
 </body>
 </html>
 """

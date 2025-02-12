@@ -41,8 +41,9 @@
    - Document complex logic to help others (and future you).  
    - Write comments that explain why something is done, not just how.  
 
-# Experiment with different tool 
+# Revision
 
-## mariadb and other. 
-## rewrite all my assignments in c#
+## Using class instances in other modules
+   - Always assign the instance to a variable. Saves you a lot of headache. 
+   - 
 

@@ -152,12 +152,17 @@ Simple diagram and explanation.
         - File manager
         - rockyou.txt: use it as the criterion for password(singleton.py). 
 
-## Day 4: Owasp (OPEN WORLD APPLICATON SECURITY PROJECT)
-- Nonprofit org that works to improve security of software. 
+## Day 4 (Solution in day 3 folder): Owasp (OPEN WORLD APPLICATON SECURITY PROJECT)
+- OSWAP is an open source nonprofit organization that works to improve security of software. 
 - Incidents with code can be found on their website (option to experiment).
-- Ways to protect systems.
+- The organization provides ways/ guides on how to protect systems.
 
 ### 5. SQL INJECTIONS
+    - Gaining unauthorized access via the login screen.
+        i. routers: directs http request to the code that handles them. An example of one can be seen below. They are the easiest way to get in into a system if it's not protected.   
+ ![alt text](image-3.png)
+        ii. Handlers: These are the functions that process the http requests directed by router.  
+            
     - vulnerabilities
     - attacks
     - unauthorized access to a system
@@ -168,6 +173,7 @@ Simple diagram and explanation.
     - optimizing the hashing: 
     - sanitizing: salting and prepared statements.
     - research target + social engineering
+    - cross side scritpting
 ### 7. Assignment¨
     - continue on last assignment
     - replace bcrypt with sha256
