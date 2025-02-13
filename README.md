@@ -167,19 +167,14 @@ Simple diagram and explanation.
             a. optimization of the hash: salting. 
             b. sanitizing: modifying/ validating input to ensure format before insertion.    
             c. prepared statements: passing prepared sql statement limits direct interaction with the database. Arguments are replaced with "?" in the statements.  
-    
-### 6. Hacking
-    - an application with vulnerabilities (build one)
-    - an attack (attack it)
-    - red team (' or 1=1;-- ) vs. blue team
-    - optimizing the hashing: 
-    - sanitizing: salting and prepared statements.
-    - research target + social engineering
-    - cross side scritpting
-### 7. Assignment¨
+### 5.1. Assignment¨
     - continue on last assignment
     - replace bcrypt with sha256
     - add another table database users256 (id, userid (unique, varchar (32)), password, comments)
+    - attempt sql injection: ' or 1=1;--
+    
+## Day 5 Ethical Hacking
+
 
 
 
