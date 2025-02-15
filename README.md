@@ -174,8 +174,8 @@ Simple diagram and explanation.
     - attempt sql injection: ' or 1=1;--
     
 ## Day 5 Ethical Hacking
-
-
-
+- John and Hash Cat: easiest to mess with. 
+- Hack Niels pc. 
+- 
 
 
